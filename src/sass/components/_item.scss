@@ -1,0 +1,94 @@
+.item{
+    width: 100%;
+    padding: 1.8rem 1.8rem 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
+
+    // Product Titles & Description
+    &__title{
+        font-size: 2.2rem;
+        font-weight: $fontWeightHeavy;
+    }
+    &__sub-title{
+        font-weight: $fontWeightHeavy;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        color: $orange;
+    }
+    &__desc{
+        font-size: 1.2rem;
+        color: $darkGrayishBlue;
+        line-height: 18px;
+    }
+
+    // Pricing display
+    &-pricing{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-price{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        &__price{
+            font-size: 2.1em;
+            font-weight: $fontWeightHeavy;
+        }
+        &__status{
+            padding: .5rem;
+            font-size: 1.1rem;
+            background-color: $paleOrange;
+            color: $orange;
+            font-weight: $fontWeightHeavy;
+        }
+        &__prev{
+            color: $grayishBlue;
+            font-weight: $fontWeightHeavy;
+            font-size: 1.1rem;
+        }
+    }
+
+    // Quantity & Button
+    &-quantity{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &-change{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1.2rem;
+            background-color: $LightGrayishBlue;
+            font-size: 1.1rem;
+            font-weight: $fontWeightHeavy;
+        }
+        &--add-btn{
+            background-color: $orange;
+            border: none;
+            color: $White;
+            width: 100%;
+            padding: 1.2rem 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: $fontFamily;
+            font-weight: $fontWeightHeavy;
+            font-size: 1.1rem;
+            gap: 6px;
+            svg{
+                fill: $White;
+                width: 2rem;
+            }
+        }
+    }
+}

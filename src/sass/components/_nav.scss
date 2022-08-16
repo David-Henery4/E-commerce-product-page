@@ -23,6 +23,11 @@
   &-right {
     width: 6.5rem;
     justify-content: space-between;
+    svg{
+      width: 2.5rem;
+      stroke: 1px;
+      fill: $darkGrayishBlue;
+    }
   }
   &-user {
     width: 2.5rem;
