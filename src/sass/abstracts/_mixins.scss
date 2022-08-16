@@ -5,5 +5,9 @@
             @content
         }
     };
-
+    @if ($breakpoint == desk) {
+        @media (min-width: 64em){
+            @content
+        }
+    };
 }

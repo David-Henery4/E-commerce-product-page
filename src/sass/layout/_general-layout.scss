@@ -3,4 +3,7 @@
     height: 100%;
     max-width: 675px;
     margin: 0 auto;
+    @include respond (desk){
+        max-width: none;
+    }
 }
