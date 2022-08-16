@@ -1,0 +1,9 @@
+
+@mixin respond ($breakpoint) {
+    @if ($breakpoint == tab) {
+        @media (min-width: 35em){
+            @content
+        }
+    };
+
+}

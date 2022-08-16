@@ -1,5 +1,4 @@
 import React from 'react'
-import { Minus, Plus, CartIcon, CartIconTest } from '../SVGs';
 import { ItemPricing, ItemQuantity } from '../components';
 
 const Item = () => {
