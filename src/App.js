@@ -1,9 +1,10 @@
-
+import {Navigation,Gallery} from "./components";
 
 function App() {
   return (
     <div className="App">
-      <h1>app</h1>
+      <Navigation/>
+      <Gallery/>
     </div>
   );
 }

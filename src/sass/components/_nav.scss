@@ -1,0 +1,34 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  padding: 1.5rem;
+  &__burger {
+    margin-right: 1rem;
+  }
+  &-left,
+  &-right {
+    height: 100%;
+    // width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-left {
+    height: 50%;
+    align-items: flex-end;
+  }
+  &-right {
+    width: 6.5rem;
+    justify-content: space-between;
+  }
+  &-user {
+    width: 2.5rem;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

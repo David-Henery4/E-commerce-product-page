@@ -1,0 +1,36 @@
+.mob-gallery{
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+    &__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+    &__left,
+    &__right{
+        position: absolute;
+        display: grid;
+        place-items: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-color: white;
+        top: 50%;
+        translate: 0% -50%;
+    }
+    &__left{
+        left: 5%;
+        svg{
+            position: relative;
+            right: 1px;
+        }
+    }
+    &__right{
+        right: 5%;
+        svg{
+            position: relative;
+            left: 1px;
+        }
+    }
+}
