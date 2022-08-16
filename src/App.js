@@ -1,4 +1,4 @@
-import {Navigation,Gallery} from "./components";
+import {Navigation,Gallery, DeskGallery} from "./components";
 import Item from "./layout/Item"
 
 function App() {
@@ -6,8 +6,11 @@ function App() {
     <div className="App">
       <div className="general-layout">
       <Navigation/>
-      <Gallery/>
-      <Item/>
+        <div className="content-layout">
+          <Gallery/>
+          <DeskGallery/>
+          <Item/>
+        </div>
       </div>
     </div>
   );

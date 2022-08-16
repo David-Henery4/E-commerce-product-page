@@ -1,7 +1,7 @@
 import React from 'react'
 import { Burger, Logo, CartIcon } from '../SVGs'
 import img from "../images/image-avatar.png"
-import navData from '../navData'
+import navData from '../data/navData'
 
 const Navigation = () => {
   return (

@@ -1,0 +1,25 @@
+.desk-gallery{
+    width: 30rem;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    @include respond (desk){
+        display: flex;
+    }
+    &__main-img{
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    &-nails{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img{
+            width: 20%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+}
