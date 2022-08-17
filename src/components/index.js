@@ -3,6 +3,8 @@ import Gallery from "./Gallery";
 import ItemPricing from "./ItemPricing";
 import ItemQuantity from "./ItemQuantity";
 import DeskGallery from "./DeskGallery";
+import Sidebar from "./Sidebar";
+import Overlay from "./Overlay";
 
 
 export {
@@ -11,4 +13,6 @@ export {
     ItemPricing,
     ItemQuantity,
     DeskGallery,
+    Sidebar,
+    Overlay
 }

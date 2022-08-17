@@ -14,7 +14,8 @@ html{
     }
 
     @include respond (lrgDesk){
-        font-size: 87.5%; // 1rem === 14px
-        // or use (81.25%/ 1rem === 13px)
+        font-size: 81.25%;
+        // 87.5% / 1rem === 14px 
+        // or use (81.25% / 1rem === 13px)
     }
 }

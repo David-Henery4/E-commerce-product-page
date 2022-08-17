@@ -8,7 +8,7 @@
   @include respond (desk){
     height: 12vh;
     margin-bottom: auto;
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid $grayishBlue;
   }
   // Burger menu & Navlinks
   &__burger {

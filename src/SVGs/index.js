@@ -6,6 +6,7 @@ import {ReactComponent as Previous} from "../images/icon-previous.svg";
 import {ReactComponent as Plus} from "../images/icon-plus.svg";
 import {ReactComponent as Minus} from "../images/icon-minus.svg";
 import {ReactComponent as CartIconTest} from "../images/CartIcon-Test.svg";
+import {ReactComponent as Close} from "../images/icon-close.svg";
 
 
 export {
@@ -16,5 +17,6 @@ export {
     Previous,
     Plus,
     Minus,
-    CartIconTest
+    CartIconTest,
+    Close
 }
