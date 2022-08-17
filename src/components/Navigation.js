@@ -2,6 +2,7 @@ import React from 'react'
 import { Burger, Logo, CartIcon } from '../SVGs'
 import img from "../images/image-avatar.png"
 import navData from '../data/navData'
+import Cart from './Cart'
 
 const Navigation = () => {
   return (
@@ -20,7 +21,8 @@ const Navigation = () => {
       </div>
       {/**/}
       <div className="nav-right">
-        <CartIcon/>
+        <CartIcon className='nav-right__cart'/>
+        <Cart/>
         <div className="nav-user">
             <img src={img} alt="user-profile"/>
         </div>

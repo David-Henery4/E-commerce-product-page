@@ -53,9 +53,10 @@
 
   // User & Cart
   &-right {
+    // position: relative;
     width: 6.5rem;
     justify-content: space-between;
-    svg{
+    &__cart{
       width: 2.5rem;
       stroke: 1px;
       fill: $darkGrayishBlue;
