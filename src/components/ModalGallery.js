@@ -1,44 +1,47 @@
 import React, { useState } from 'react'
 import { largeImages, thumbnails } from "../data/imgData";
 import {Next, Previous, Close} from "../SVGs"
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveGalleryImg, setNextImg, setPrevImg, toggleModalGallery, toggleOverlay } from '../toolkit/features/overall/OverallSlice';
 
 // Needs "modal-gallery-active"
 
 const ModalGallery = () => {
-    let [activeImg,setActiveImg] = useState(0)
-
-    // Will make reusable by having in the store & slice
-    const handleThumbChange = (i) => {
-        setActiveImg(i)
-    }
-    //
-    const handleNextChange = () => {
-        setActiveImg(++activeImg);
-        if (activeImg > thumbnails.length -1){
-            setActiveImg(0)
-        }
-        console.log(activeImg)
-    }
-    //
-    const handlePrevChange = () => {
-        setActiveImg(--activeImg);
-        if (activeImg < 0) {
-            setActiveImg(thumbnails.length -1)
-        }
-    }
-    //
+  const dispatch = useDispatch()
+  const { currentImage, isModalGalleryOpen } = useSelector(
+    (store) => store.overall
+  );
+  //
     return (
-      <div className="modal-gallery">
-        <Close className="modal-gallery-close" />
+      // needs "modal-gallery-active"
+      <div
+        className={
+          isModalGalleryOpen
+            ? "modal-gallery modal-gallery-active"
+            : "modal-gallery"
+        }
+      >
+        <Close className="modal-gallery-close" onClick={() => {
+          dispatch(toggleOverlay())
+          dispatch(toggleModalGallery())
+        }} />
         <div className="modal-gallery-prev">
-          <Previous onClick={handlePrevChange} />
+          <Previous
+            onClick={() => {
+              dispatch(setPrevImg());
+            }}
+          />
         </div>
         <div className="modal-gallery-next">
-          <Next onClick={handleNextChange} />
+          <Next
+            onClick={() => {
+              dispatch(setNextImg());
+            }}
+          />
         </div>
         <img
           className="modal-gallery__main-img"
-          src={largeImages[activeImg]}
+          src={largeImages[currentImage]}
           alt="main-product"
         />
         <div className="modal-gallery-nails">
@@ -49,7 +52,7 @@ const ModalGallery = () => {
                 src={thumb}
                 alt="thumbnail"
                 key={i}
-                onClick={() => handleThumbChange(i)}
+                onClick={() => dispatch(setActiveGalleryImg(i))}
               />
             );
           })}

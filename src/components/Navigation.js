@@ -4,7 +4,7 @@ import img from "../images/image-avatar.png"
 import navData from '../data/navData'
 import Cart from './Cart'
 import { useDispatch } from 'react-redux'
-import { toggleNavbarOpen, toggleCartOpen } from '../toolkit/features/overall/OverallSlice'
+import { toggleNavbarOpen, toggleCartOpen, toggleOverlay } from '../toolkit/features/overall/OverallSlice'
 
 const Navigation = () => {
   const dispatch = useDispatch()
@@ -15,6 +15,7 @@ const Navigation = () => {
       <div className="nav-left">
         <Burger className='nav__burger' onClick={() => {
           dispatch(toggleNavbarOpen())
+          dispatch(toggleOverlay())
         }}/>
         <Logo/>
         <ul className='nav-links'>
