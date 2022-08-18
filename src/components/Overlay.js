@@ -1,9 +1,8 @@
 import React from 'react'
 
 const Overlay = () => {
-  return (
-    <div className='overlay'></div>
-  )
+  // needs "overlay-active"
+  return <div className="overlay"></div>;
 }
 
 export default Overlay

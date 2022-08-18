@@ -4,7 +4,7 @@ import { CartItem } from "./CartItem";
 const Cart = () => {
   return (
     // Needs "cart-active" class
-    <div className="cart cart-active">
+    <div className="cart">
       {/* CART HEADER */}
       <div className="cart-header">
         <p className="cart-header__title">Cart</p>

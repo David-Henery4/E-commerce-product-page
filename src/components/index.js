@@ -5,6 +5,7 @@ import ItemQuantity from "./ItemQuantity";
 import DeskGallery from "./DeskGallery";
 import Sidebar from "./Sidebar";
 import Overlay from "./Overlay";
+import ModalGallery from "./ModalGallery";
 
 
 export {
@@ -14,5 +15,6 @@ export {
     ItemQuantity,
     DeskGallery,
     Sidebar,
-    Overlay
+    Overlay,
+    ModalGallery,
 }

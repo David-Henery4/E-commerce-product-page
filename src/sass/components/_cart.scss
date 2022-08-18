@@ -3,11 +3,10 @@
 .cart{
     position: absolute;
     z-index: 1;
-    top: -85px; // 90
-    right: -100px; // was 85
+    top: -85px;
+    right: -100px;
     transform: scale(0);
-    // translate(50%, -50%)
-    // visibility: hidden;
+    visibility: hidden;
     transition: ease-in-out .5s;
     width: 95%;
     min-height: 235px;
@@ -46,7 +45,6 @@
 
 .cart-active{
     transform: scale(1);
-    // transform: scale(1) translate(-30.5%, 70%);
     top: 9%;
     right: 2.5%;
     transition: ease-in-out .5s;
