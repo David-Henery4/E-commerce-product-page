@@ -3,13 +3,19 @@ import { Burger, Logo, CartIcon } from '../SVGs'
 import img from "../images/image-avatar.png"
 import navData from '../data/navData'
 import Cart from './Cart'
+import { useDispatch } from 'react-redux'
+import { toggleNavbarOpen, toggleCartOpen } from '../toolkit/features/overall/OverallSlice'
 
 const Navigation = () => {
+  const dispatch = useDispatch()
+
   return (
     <nav className='nav'>
       
       <div className="nav-left">
-        <Burger className='nav__burger'/>
+        <Burger className='nav__burger' onClick={() => {
+          dispatch(toggleNavbarOpen())
+        }}/>
         <Logo/>
         <ul className='nav-links'>
           {navData.map(link => {
@@ -21,7 +27,7 @@ const Navigation = () => {
       </div>
       {/**/}
       <div className="nav-right">
-        <CartIcon className='nav-right__cart'/>
+        <CartIcon className='nav-right__cart' onClick={() => dispatch(toggleCartOpen())}/>
         <Cart/>
         <div className="nav-user">
             <img src={img} alt="user-profile"/>
