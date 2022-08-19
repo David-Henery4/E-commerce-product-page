@@ -16,7 +16,9 @@ const ItemQuantity = () => {
     )
     if (checkDupItem){
       dispatch(updateCartItems({id,amount}))
-      // dispatch(addItemToCart(updateItem))
+    }
+    if (amount <= 0){
+      return
     }
     if (!checkDupItem){
       const itemDetails = {
@@ -30,10 +32,6 @@ const ItemQuantity = () => {
       dispatch(addItemToCart(itemDetails))
     }
   }
-  //
-  // const checkForDupItem = () => {
-
-  // }
   //
   const handleQuantityInc = () => {
     setAmount(++amount)
