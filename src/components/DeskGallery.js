@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { largeImages, thumbnails } from '../data/imgData'
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -24,9 +24,28 @@ const DeskGallery = () => {
         />
         <div className="desk-gallery-nails">
           {thumbnails.map((thumbs, i) => {
-            return <img key={i} src={thumbs} alt={`thumbnail-${i}`} onClick={() => {
-              dispatch(setActiveGalleryImg(i));
-            }} />;
+            // if i matches active give style
+            return (
+              <div
+                key={i}
+                className="desk-gallery-nail"
+                style={{
+                  outline: `${currentImage === i ? "4px solid orange" : "none"}`,
+                }}
+                onClick={() => {
+                  dispatch(setActiveGalleryImg(i));
+                }}
+              >
+                <div
+                  className={
+                    currentImage === i
+                      ? "desk-gallery-nail-overlay active-thumb-overlay"
+                      : "desk-gallery-nail-overlay"
+                  }
+                ></div>
+                <img src={thumbs} alt={`thumbnail-${i}`} />
+              </div>
+            );
           })}
         </div>
       </div>

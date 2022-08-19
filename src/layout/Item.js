@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Item = () => {
   const {item} = useSelector(store => store.overall)
-  const {id,name,company,desc,price,discount,discountedPrice} = item
+  const {name,company,desc,price,discount,discountedPrice} = item
   // id,company,name,desc,price,discount,discountedPrice
   //
   return (

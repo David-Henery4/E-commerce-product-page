@@ -47,13 +47,29 @@ const ModalGallery = () => {
         <div className="modal-gallery-nails">
           {thumbnails.map((thumb, i) => {
             return (
-              <img
-                className="modal-gallery__thumb"
-                src={thumb}
-                alt="thumbnail"
+              <div
+                className="modal-gallery-nail"
                 key={i}
+                style={{
+                  outline: `${
+                    currentImage === i ? "4px solid orange" : "none"
+                  }`,
+                }}
                 onClick={() => dispatch(setActiveGalleryImg(i))}
-              />
+              >
+                <div
+                  className={
+                    currentImage === i
+                      ? "modal-gallery-nail-overlay active-thumb-overlay"
+                      : "modal-gallery-nail-overlay"
+                  }
+                ></div>
+                <img
+                  className="modal-gallery__thumb"
+                  src={thumb}
+                  alt="thumbnail"
+                />
+              </div>
             );
           })}
         </div>

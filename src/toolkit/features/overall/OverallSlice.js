@@ -13,6 +13,7 @@ const initialState = {
   largeImages,
   thumbnails,
   currentImage: 0,
+  sumOfItems: 0,
 };
 
 const overallSlice = createSlice({
@@ -49,6 +50,7 @@ const overallSlice = createSlice({
     },
     addItemToCart: (state, { payload }) => {
       state.cartItems = [...state.cartItems, payload];
+      state.sumOfItems = payload.amountOfItems;
     },
     updateCartItems: (state, { payload }) => {
       if (payload.amount > 0){
@@ -59,6 +61,7 @@ const overallSlice = createSlice({
         // total wrong
         updateItem.totalPrice =
         (updateItem.price) * (updateItem.amountOfItems);
+        state.sumOfItems = updateItem.amountOfItems
       }
     },
     deleteItemFromCart: (state, {payload}) => {

@@ -53,13 +53,26 @@
 
   // User & Cart
   &-right {
-    // position: relative;
+    position: relative;
     width: 6.5rem;
     justify-content: space-between;
     &__cart{
       width: 2.5rem;
       stroke: 1px;
       fill: $darkGrayishBlue;
+    }
+    &-num-items{
+      position: absolute;
+      top: 0;
+      left: 15px;
+      min-width: 22px;
+      min-height: 17px;
+      padding: 2px;
+      background-color: $orange;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: $White;
     }
   }
   &-user {
