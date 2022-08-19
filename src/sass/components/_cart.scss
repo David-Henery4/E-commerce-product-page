@@ -20,8 +20,8 @@
         border-bottom: 1px solid grey;
         padding: 20px;
     }
-    &-empty{
-        display: none; // temp (Displayed when no items)
+    &-empty{ //(Displayed when no items)
+        margin: 17px;
     }
     &-content{
         width: 100%;

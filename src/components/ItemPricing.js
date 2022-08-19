@@ -1,14 +1,15 @@
 import React from 'react'
 
 
-const ItemPricing = () => {
+const ItemPricing = ({price, discount, discountedPrice}) => {
+  // console.log(price,discount,discountedPrice)
   return (
     <div className="item-pricing">
       <div className="item-price">
-        <p className="item-price__price">$125.00</p>
-        <p className="item-price__status">50%</p>
+        <p className="item-price__price">${discountedPrice.toFixed(2)}</p>
+        <p className="item-price__status">{discount}</p>
       </div>
-      <p className="item-price__prev">$250.00</p>
+      <p className="item-price__prev">${price.toFixed(2)}</p>
     </div>
   );
 }

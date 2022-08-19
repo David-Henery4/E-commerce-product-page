@@ -1,17 +1,21 @@
 import React from 'react'
 import { ItemPricing, ItemQuantity } from '../components';
+import { useSelector } from 'react-redux';
+
 
 const Item = () => {
+  const {item} = useSelector(store => store.overall)
+  const {id,name,company,desc,price,discount,discountedPrice} = item
+  // id,company,name,desc,price,discount,discountedPrice
+  //
   return (
     <main className="item">
-      <p className="item__sub-title">SNEAKER COMPANY</p>
-      <h1 className="item__title">Fall Limited Edition Sneakers</h1>
+      <p className="item__sub-title">{company.toUpperCase()}</p>
+      <h1 className="item__title">{name}</h1>
       <article className="item__desc">
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they’ll withstand everything the
-        weather can offer.
+        {desc}
       </article>
-      <ItemPricing/>
+      <ItemPricing price={price} discount={discount} discountedPrice={discountedPrice}/>
       <ItemQuantity/>
     </main>
   );
