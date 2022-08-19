@@ -32,7 +32,6 @@ const Navigation = () => {
         </ul>
       </div>
       {/**/}
-      {/* Cart was after CartIcon (if we need to do back) */}
       <Cart />
       <div className="nav-right">
         {cartItems.length > 0 && (

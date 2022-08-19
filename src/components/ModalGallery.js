@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { largeImages, thumbnails } from "../data/imgData";
 import {Next, Previous, Close} from "../SVGs"
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveGalleryImg, setNextImg, setPrevImg, toggleModalGallery, toggleOverlay } from '../toolkit/features/overall/OverallSlice';
-
-// Needs "modal-gallery-active"
 
 const ModalGallery = () => {
   const dispatch = useDispatch()
@@ -13,7 +11,6 @@ const ModalGallery = () => {
   );
   //
     return (
-      // needs "modal-gallery-active"
       <div
         className={
           isModalGalleryOpen
@@ -21,23 +18,26 @@ const ModalGallery = () => {
             : "modal-gallery"
         }
       >
-        <Close className="modal-gallery-close" onClick={() => {
-          dispatch(toggleOverlay())
-          dispatch(toggleModalGallery())
-        }} />
-        <div className="modal-gallery-prev">
-          <Previous
-            onClick={() => {
-              dispatch(setPrevImg());
-            }}
-          />
+        <Close
+          className="modal-gallery-close"
+          onClick={() => {
+            dispatch(toggleOverlay());
+            dispatch(toggleModalGallery());
+          }}
+        />
+        <div
+          className="modal-gallery-prev"
+          onClick={() => {
+            dispatch(setPrevImg());
+          }}>
+          <Previous />
         </div>
-        <div className="modal-gallery-next">
-          <Next
-            onClick={() => {
-              dispatch(setNextImg());
-            }}
-          />
+        <div
+          className="modal-gallery-next"
+          onClick={() => {
+            dispatch(setNextImg());
+          }}>
+          <Next />
         </div>
         <img
           className="modal-gallery__main-img"

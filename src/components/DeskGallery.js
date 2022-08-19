@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { largeImages, thumbnails } from '../data/imgData'
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -24,7 +24,6 @@ const DeskGallery = () => {
         />
         <div className="desk-gallery-nails">
           {thumbnails.map((thumbs, i) => {
-            // if i matches active give style
             return (
               <div
                 key={i}

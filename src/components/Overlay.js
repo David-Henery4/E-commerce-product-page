@@ -11,7 +11,6 @@ const Overlay = () => {
   const { isOverlayActive, isNavbarOpen, isModalGalleryOpen } = useSelector(
     (store) => store.overall
   );
-  // needs "overlay-active"
   return <div onClick={() => {
     dispatch(toggleOverlay());
     if (isNavbarOpen){

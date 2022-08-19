@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import thumb from "../images/image-product-1-thumbnail.jpg";
 import { Delete } from "../SVGs";
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCartItems, deleteItemFromCart } from '../toolkit/features/overall/OverallSlice';
+import {deleteItemFromCart } from '../toolkit/features/overall/OverallSlice';
 
 
 export const CartItem = () => {
   const [isCartEmpty, setIsCartEmpty] = useState(true)
   const {cartItems} = useSelector(store => store.overall)
   const dispatch = useDispatch()
-  // id,name,price,amountOfItems,totalPrice
   //
   const handleDeleteItem = (id) => {
     const newCartItems = cartItems.filter(item => item.id !== id)
@@ -22,7 +20,6 @@ export const CartItem = () => {
   }, [cartItems.length])
   //
   return (
-    // cart-center-empty
     <div
       className={
         isCartEmpty ? "cart-content cart-center-empty" : "cart-content"

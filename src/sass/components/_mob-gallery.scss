@@ -21,6 +21,11 @@
         background-color: white;
         top: 50%;
         translate: 0% -50%;
+        stroke: $Black;
+        &:hover{
+            cursor: pointer;
+            stroke: $orange;
+        }
     }
     &__left{
         left: 3%;

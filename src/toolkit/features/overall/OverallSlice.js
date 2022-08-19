@@ -3,7 +3,7 @@ import itemData from "../../../data/itemData";
 import { largeImages, thumbnails } from "../../../data/imgData";
 
 const initialState = {
-  item: itemData, // default not really needed
+  item: itemData,
   cartItems: [],
   itemAmount: 0,
   isNavbarOpen: false,
@@ -58,7 +58,6 @@ const overallSlice = createSlice({
           return itemInCart.id === payload.id;
         });
         updateItem.amountOfItems += payload.amount;
-        // total wrong
         updateItem.totalPrice =
         (updateItem.price) * (updateItem.amountOfItems);
         state.sumOfItems = updateItem.amountOfItems

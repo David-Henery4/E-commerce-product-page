@@ -13,6 +13,9 @@
   // Burger menu & Navlinks
   &__burger {
     margin-right: 1rem;
+    &:hover{
+      cursor: pointer;
+    }
     @include respond (desk){
       display: none;
     }
@@ -26,19 +29,34 @@
     gap: 25px;
   }
   &__link{
+    position: relative;
+    
     a,
     a:link,
     a:visited{
       color: $darkGrayishBlue;
       text-decoration: none;
+      &:hover{
+        cursor: pointer;
+        color: $Black;
+        &::after{
+      content: "";
+      position: absolute;
+      top: 274%;
+      left: -1px;
+      width: 100%;
+      height: 3px;
+      background-color: $orange;
     }
+      }
+    }
+    
   }
 
   // Left & Right Nav Containers
   &-left,
   &-right {
     height: 100%;
-    // width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,6 +78,10 @@
       width: 2.5rem;
       stroke: 1px;
       fill: $darkGrayishBlue;
+      &:hover{
+        cursor: pointer;
+        fill: $Black;
+      }
     }
     &-num-items{
       position: absolute;
@@ -78,6 +100,11 @@
   &-user {
     width: 2.5rem;
     img {
+      border-radius: 50%;
+      &:hover{
+        cursor: pointer;
+        outline: 2px solid $orange;
+      }
       width: 100%;
       object-fit: cover;
     }

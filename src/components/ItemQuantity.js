@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Minus, Plus, CartIcon, CartIconTest } from "../SVGs";
+import { Minus, Plus, CartIcon } from "../SVGs";
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart, updateCartItems } from '../toolkit/features/overall/OverallSlice';
 
@@ -8,7 +8,7 @@ import { addItemToCart, updateCartItems } from '../toolkit/features/overall/Over
 const ItemQuantity = () => {
   const dispatch = useDispatch()
   const {item,cartItems} = useSelector(store => store.overall)
-  const {price,discount,id,name,thumbs} = item
+  const {price,id,name,thumbs} = item
   let [amount, setAmount] = useState(0)
   //
   const handleItemToCart = () => {
@@ -50,6 +50,7 @@ const ItemQuantity = () => {
         <Plus onClick={handleQuantityInc} />
       </div>
       <button className="item-quantity--add-btn" onClick={handleItemToCart}>
+        <div className="item-quantity--add-btn-overlay"></div>
         <CartIcon />
         Add to cart
       </button>

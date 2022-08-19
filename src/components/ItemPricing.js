@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const ItemPricing = ({price, discount, discountedPrice}) => {
-  // console.log(price,discount,discountedPrice)
   return (
     <div className="item-pricing">
       <div className="item-price">

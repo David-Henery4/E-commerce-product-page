@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 const Item = () => {
   const {item} = useSelector(store => store.overall)
   const {name,company,desc,price,discount,discountedPrice} = item
-  // id,company,name,desc,price,discount,discountedPrice
   //
   return (
     <main className="item">

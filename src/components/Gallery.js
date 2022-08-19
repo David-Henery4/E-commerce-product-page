@@ -1,6 +1,5 @@
 import React from 'react'
 import { Next, Previous } from '../SVGs'
-import ImgProductOne from "../images/image-product-1.jpg";
 import { useDispatch,useSelector } from 'react-redux';
 import { setNextImg, setPrevImg } from '../toolkit/features/overall/OverallSlice';
 
@@ -11,16 +10,19 @@ const Gallery = () => {
 
   return (
     <div className="mob-gallery">
-      <div className="mob-gallery__right">
-        <Next onClick={() => dispatch(setNextImg())} />
+      <div
+        className="mob-gallery__right"
+        onClick={() => dispatch(setNextImg())}
+      >
+        <Next />
       </div>
       <img
         className="mob-gallery__img"
         src={largeImages[currentImage]}
         alt="main-product"
       />
-      <div className="mob-gallery__left">
-        <Previous onClick={() => dispatch(setPrevImg())} />
+      <div className="mob-gallery__left" onClick={() => dispatch(setPrevImg())}>
+        <Previous />
       </div>
     </div>
   );

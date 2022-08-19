@@ -4,11 +4,8 @@ import { useSelector} from "react-redux";
 
 const Cart = () => {
   const {isCartOpen} = useSelector(store => store.overall)
-
-
   //
   return (
-    // Needs "cart-active" class
     <div className={isCartOpen? "cart-active cart" : "cart"}>
       {/* CART HEADER */}
       <div className="cart-header">
