@@ -10,7 +10,7 @@
     transition: ease-in-out .5s;
     width: 95%;
     height: 235px;
-    overflow: scroll;
+    overflow-y: auto;
     max-width: 356px;
     background-color: $White;
     border-radius: 10px;

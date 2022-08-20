@@ -48,9 +48,8 @@ This is the mobile view of when a item gets added to the cart.
 
 ### Links
 
-(LINKS TO BE ADDED)
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Sneakers solution](https://www.frontendmentor.io/solutions/sneakers-product-pagereact-flexbox-sass-responsive-reduxtoolkit-o3dDlPFG7k)
+- Live Site URL: [Sneakers Product Page](https://sneakerz-product-page.netlify.app/)
 
 ## My process
 
