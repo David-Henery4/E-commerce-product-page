@@ -1,6 +1,6 @@
 # Frontend Mentor - E-commerce product page solution
 
-This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges helps improve coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -12,11 +12,9 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+
 
 ## Overview
 
@@ -31,20 +29,26 @@ Users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.jpg)
+Here are screenshots of the project in different states:
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![desktop](./Readme-Images/Screenshot-desk-active.png)
+Here is the main page with item added to cart.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+<br>
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+![desktop-modal](./Readme-Images/Screenshot-desk-modal.png)
+Here is the modal gallery, which is activated by clicking the main image.
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+<br>
+
+![mobile-cart](./Readme-Images/Screenshot-mob-cart.png)
+This is the mobile view of when a item gets added to the cart.
 
 ### Links
 
+(LINKS TO BE ADDED)
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
@@ -53,63 +57,75 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - Flexbox
-- CSS Grid
+- [SASS](https://sass-lang.com)
+- SASS Mixins & Variables
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [React](https://reactjs.org) - JS library
+- [ReduxToolkit](https://redux-toolkit.js.org) - A Library used for state management
+- [ReactRedux](https://react-redux.js.org) Redux specific to react.
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+One of the main areas I improved on in this project was **preplanning** the css & the functionality of certain features. For example, the cart UI & functionality I wanted to make sure that these would work in the context of a real ecommerce site, and if needed to, multiple items could be added to this cart and it would still be fully functional. I done this by making the item into a object and placing the object onto an array, so now we can add multiple items to this array which would render them into the cart dynamically. I added overflow scroll to the cart UI, so when more items are added, the cart Ui doesn't start covering the whole screen. Which i think would have been a poor user experience.
 
-To see how you can add code snippets, see below:
+I also learned how to create a gallery, with multiple thumbnails being able to select the main image. While also creating active styles and adding them to the thumbnail to display which image was currently active. I was able to do this by having the array of images and having a active number in the state connected to the index of the current image in the array.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+
+### The CartItem component
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+export const CartItem = () => {
+  const [isCartEmpty, setIsCartEmpty] = useState(true)
+  const {cartItems} = useSelector(store => store.overall)
+  const dispatch = useDispatch()
+  //
+  const handleDeleteItem = (id) => {
+    const newCartItems = cartItems.filter(item => item.id !== id)
+    dispatch(deleteItemFromCart(newCartItems))
+  }
+  //
+  useEffect(() => {
+    if (cartItems.length <= 0) setIsCartEmpty(true)
+    if(cartItems.length > 0) setIsCartEmpty(false)
+  }, [cartItems.length])
+  //
+  return (
+    <div
+      className={
+      isCartEmpty ? "cart-content cart-center-empty" : "cart-content"}>
+      {isCartEmpty ? (
+        <p className="cart-empty">Your cart is empty.</p>
+      ) : ( cartItems.map((item) => {
+          const { id, name, price, amountOfItems, totalPrice, thumb } = item;
+      return(<div key={id} className="cart-item">
+    <div className="cart-item-overall">
+        <img className="cart-item__thumb" src={thumb} alt="item" />
+      <div className="cart-item-info">
+        <p className="cart-item__title">{name}</p>
+        <div className="cart-item-prices">
+          <p className="cart-item__price">${price.toFixed()}</p>
+          <p className="cart-item__amount"> x {amountOfItems}</p>
+          <p className="cart-item__total">${totalPrice.toFixed()}</p>
+        </div>
+      </div>
+      <Delete className="cart-item-delete"
+      onClick={() => {
+        handleDeleteItem(id)}}/>
+    </div>
+  </div>)}))}
+  {isCartEmpty || <button className="cart__btn">Checkout</button>}
+</div>
+  )
 }
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+This project definitely helped me practice to learn what is needed in order to build a product page. I will be using what I've learned here in order to build more cleaner and steamlined product pages in future projects. Especially in the context of a real store website, where we can reuse a product page component in order to display multiple different products.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [David Henery](https://www.djhwebdevelopment.com)
+- Frontend Mentor - [@David-Henery4](https://www.frontendmentor.io/profile/David-Henery4)
+- LinkedIn - [David Henery](https://www.linkedin.com/in/david-henery-725458241)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**

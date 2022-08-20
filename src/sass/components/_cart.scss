@@ -9,7 +9,8 @@
     visibility: hidden;
     transition: ease-in-out .5s;
     width: 95%;
-    min-height: 235px;
+    height: 235px;
+    overflow: scroll;
     max-width: 356px;
     background-color: $White;
     border-radius: 10px;
