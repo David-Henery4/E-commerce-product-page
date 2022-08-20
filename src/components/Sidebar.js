@@ -22,9 +22,11 @@ const Sidebar = () => {
       <ul className="sidebar-links">
         {navData.map((link) => {
           return (
-            <a key={link.id} className="sidebar-links__link" href="#">
-              {link.name}
-            </a>
+            <li key={link.id}>
+              <a className="sidebar-links__link" href="#">
+                {link.name}
+              </a>
+            </li>
           );
         })}
       </ul>

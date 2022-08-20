@@ -25,7 +25,6 @@ const overallSlice = createSlice({
     },
     toggleNavbarOpen: (state) => {
       state.isNavbarOpen = !state.isNavbarOpen;
-      console.log(state.isNavbarOpen);
     },
     toggleOverlay: (state) => {
       state.isOverlayActive = !state.isOverlayActive;
